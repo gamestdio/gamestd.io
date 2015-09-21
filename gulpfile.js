@@ -124,6 +124,7 @@ gulp.task('fonts', function () {
 
 gulp.task('extras', function () {
   return gulp.src([
+    'app/CNAME',
     'app/*.*',
     '!app/*.html'
   ], {
