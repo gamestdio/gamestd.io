@@ -193,7 +193,7 @@ gulp.task('build', ['javascript', 'stylesheet', 'html', 'images', 'fonts', 'extr
 
 gulp.task('deploy', ['build'], function () {
   return gulp.src('./dist/**/*')
-    .pipe($.ghPages());
+    .pipe($.ghPages({branch: "gh-pages"}));
 })
 
 gulp.task('default', ['clean'], function () {
