@@ -6,6 +6,11 @@ color-contrast = #57c98f
   margin 0
   padding 0
 
+a
+  color inherit
+  &:hover
+    opacity 0.8
+
 body
   font-size 18px
   width 100vw
@@ -14,7 +19,6 @@ body
 
 h1
   font-size 3.5em
-  text-align center
   font-family 'seasons-spring'
   color color-contrast
 
@@ -58,12 +62,20 @@ header
       width 50%
 
 nav
-  position relative
+  z-index 100
   background url('../images/background.jpg') center no-repeat
   background-size cover
   display block
   width 100%
-  padding 50px 0
+  padding 24px 0
+
+  position fixed
+  left 0
+
+  transition top 0.3s
+  top -100px
+  &.active
+    top 0
 
   &:before
     display block
@@ -78,7 +90,7 @@ nav
   ul
     float right
     display inline-block
-    margin 10px 0
+    margin 5px 0
     li
       display inline-block
       &:not(:last-child)
@@ -96,13 +108,58 @@ nav
   position relative
   margin 0 auto
   width 80vw
+  max-width 1024px
 
 section
-  margin 20vh 0
-  //
+  text-align center
+  margin 15vh 0 10vh 0
+  padding 5vh 0 15vh 0
+  &:last-child
+    margin-bottom 0
+  &.contrast
+    color white
+    background color-contrast
+    h1
+      color white
 
 footer
-  padding 24px
+  position relative
+  padding 32px
   background black
   color white
   font-size 14px
+
+  ul.social
+    text-align right
+    display block
+    position absolute
+    top -4px
+    left 0
+    right 0
+    margin 0 auto
+
+    list-style none
+    display inline-block
+
+    li
+      display inline-block
+      margin 0 3px
+      a
+        display inline-block
+        width 30px
+        height 30px
+        &:hover
+          opacity 1
+          text-decoration none
+        &.twitter
+          background url('../images/social-twitter.png')
+          &:hover
+            background url('../images/social-twitter-over.png')
+        &.facebook
+          background url('../images/social-facebook.png')
+          &:hover
+            background url('../images/social-facebook-over.png')
+        &.linkedin
+          background url('../images/social-linkedin.png')
+          &:hover
+            background url('../images/social-linkedin-over.png')
