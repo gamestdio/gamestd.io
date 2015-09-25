@@ -74,8 +74,12 @@ nav
 
   transition top 0.3s
   top -100px
+
   &.active
     top 0
+
+  @media (max-width: 800px)
+    display none
 
   &:before
     display block
@@ -164,4 +168,4 @@ footer
         display inline-block
         width 3.8vh
         height 3.8vh
-        background-size cover !important
+        background-size contain !important
