@@ -1,0 +1,136 @@
+/*
+Stylus variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: $icon_home_width;
+}
+
+The large array-like variables contain all information about a single icon
+$icon_home = x y offset_x offset_y width height total_width total_height image_path;
+
+At the bottom of this section, we provide information about the spritesheet itself
+$spritesheet = width height image $spritesheet_sprites;
+*/
+$social_facebook_over_name = 'social-facebook-over';
+$social_facebook_over_x = 0px;
+$social_facebook_over_y = 0px;
+$social_facebook_over_offset_x = 0px;
+$social_facebook_over_offset_y = 0px;
+$social_facebook_over_width = 30px;
+$social_facebook_over_height = 30px;
+$social_facebook_over_total_width = 90px;
+$social_facebook_over_total_height = 60px;
+$social_facebook_over_image = '../images/sprite_social.png';
+$social_facebook_over = 0px 0px 0px 0px 30px 30px 90px 60px '../images/sprite_social.png' 'social-facebook-over';
+$social_facebook_name = 'social-facebook';
+$social_facebook_x = 30px;
+$social_facebook_y = 0px;
+$social_facebook_offset_x = -30px;
+$social_facebook_offset_y = 0px;
+$social_facebook_width = 30px;
+$social_facebook_height = 30px;
+$social_facebook_total_width = 90px;
+$social_facebook_total_height = 60px;
+$social_facebook_image = '../images/sprite_social.png';
+$social_facebook = 30px 0px -30px 0px 30px 30px 90px 60px '../images/sprite_social.png' 'social-facebook';
+$social_linkedin_over_name = 'social-linkedin-over';
+$social_linkedin_over_x = 0px;
+$social_linkedin_over_y = 30px;
+$social_linkedin_over_offset_x = 0px;
+$social_linkedin_over_offset_y = -30px;
+$social_linkedin_over_width = 30px;
+$social_linkedin_over_height = 30px;
+$social_linkedin_over_total_width = 90px;
+$social_linkedin_over_total_height = 60px;
+$social_linkedin_over_image = '../images/sprite_social.png';
+$social_linkedin_over = 0px 30px 0px -30px 30px 30px 90px 60px '../images/sprite_social.png' 'social-linkedin-over';
+$social_linkedin_name = 'social-linkedin';
+$social_linkedin_x = 30px;
+$social_linkedin_y = 30px;
+$social_linkedin_offset_x = -30px;
+$social_linkedin_offset_y = -30px;
+$social_linkedin_width = 30px;
+$social_linkedin_height = 30px;
+$social_linkedin_total_width = 90px;
+$social_linkedin_total_height = 60px;
+$social_linkedin_image = '../images/sprite_social.png';
+$social_linkedin = 30px 30px -30px -30px 30px 30px 90px 60px '../images/sprite_social.png' 'social-linkedin';
+$social_twitter_over_name = 'social-twitter-over';
+$social_twitter_over_x = 60px;
+$social_twitter_over_y = 0px;
+$social_twitter_over_offset_x = -60px;
+$social_twitter_over_offset_y = 0px;
+$social_twitter_over_width = 30px;
+$social_twitter_over_height = 30px;
+$social_twitter_over_total_width = 90px;
+$social_twitter_over_total_height = 60px;
+$social_twitter_over_image = '../images/sprite_social.png';
+$social_twitter_over = 60px 0px -60px 0px 30px 30px 90px 60px '../images/sprite_social.png' 'social-twitter-over';
+$social_twitter_name = 'social-twitter';
+$social_twitter_x = 60px;
+$social_twitter_y = 30px;
+$social_twitter_offset_x = -60px;
+$social_twitter_offset_y = -30px;
+$social_twitter_width = 30px;
+$social_twitter_height = 30px;
+$social_twitter_total_width = 90px;
+$social_twitter_total_height = 60px;
+$social_twitter_image = '../images/sprite_social.png';
+$social_twitter = 60px 30px -60px -30px 30px 30px 90px 60px '../images/sprite_social.png' 'social-twitter';
+$spritesheet_width = 90px;
+$spritesheet_height = 60px;
+$spritesheet_image = '../images/sprite_social.png';
+$spritesheet_sprites = $social_facebook_over $social_facebook $social_linkedin_over $social_linkedin $social_twitter_over $social_twitter;
+$spritesheet = 90px 60px '../images/sprite_social.png' $spritesheet_sprites;
+
+/*
+The provided mixins are intended to be used with the array-like variables
+
+.icon-home {
+  spriteWidth($icon_home)
+}
+
+.icon-email {
+  sprite($icon_email)
+}
+*/
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+
+/*
+The `sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of Stylus
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+sprites($spritesheet_sprites);
+*/
+sprites($sprites) {
+  for $sprite in $sprites {
+    $sprite_name = $sprite[9];
+    .{$sprite_name} {
+      sprite($sprite);
+    }
+  }
+}

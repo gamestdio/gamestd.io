@@ -166,19 +166,19 @@ footer
           opacity 1
           text-decoration none
         &.twitter
-          background url('../images/social-twitter.png') no-repeat
+          sprite $social_twitter
+          // background url('../images/social-twitter.png') no-repeat
           &:hover
-            background url('../images/social-twitter-over.png') no-repeat
+            sprite $social_twitter_over
         &.facebook
-          background url('../images/social-facebook.png') no-repeat
+          sprite $social_facebook
           &:hover
-            background url('../images/social-facebook-over.png') no-repeat
+            sprite $social_facebook_over
         &.linkedin
-          background url('../images/social-linkedin.png') no-repeat
+          sprite $social_linkedin
           &:hover
-            background url('../images/social-linkedin-over.png') no-repeat
+            sprite $social_linkedin_over
 
         display inline-block
         width 3.8vh
         height 3.8vh
-        background-size contain !important
