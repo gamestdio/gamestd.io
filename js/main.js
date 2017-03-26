@@ -1,1 +1,11 @@
-!function e(r,t,n){function o(u,c){if(!t[u]){if(!r[u]){var f="function"==typeof require&&require;if(!c&&f)return f(u,!0);if(i)return i(u,!0);var a=new Error("Cannot find module '"+u+"'");throw a.code="MODULE_NOT_FOUND",a}var s=t[u]={exports:{}};r[u][0].call(s.exports,function(e){var t=r[u][1][e];return o(t?t:e)},s,s.exports,e,r,t,n)}return t[u].exports}for(var i="function"==typeof require&&require,u=0;u<n.length;u++)o(n[u]);return o}({1:[function(e,r,t){"use strict";var n=document.querySelector("header").offsetHeight,o=100,i=document.querySelector("nav");window.addEventListener("scroll",function(e){window.scrollY>=n-o?i.classList.add("active"):i.classList.remove("active")})},{}]},{},[1]);
+var headerHeight = document.querySelector('header').offsetHeight;
+var headerDistance = 100;
+var nav = document.querySelector('nav');
+
+window.addEventListener('scroll', function(e) {
+  if (window.scrollY >= headerHeight - headerDistance) {
+    nav.classList.add('active');
+  } else {
+    nav.classList.remove('active');
+  }
+})
